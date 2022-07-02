@@ -30,7 +30,7 @@ public class Property {
     private List<PropertyValue> propertyValues;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "cluster_sqn"/*, nullable = false*/)
+    @JoinColumn(name = "cluster_sqn")
     private Cluster cluster;
 
     public Property(String nameProp, String typeofMp, Cluster cluster) {

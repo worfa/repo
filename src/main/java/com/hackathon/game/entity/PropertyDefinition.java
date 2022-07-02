@@ -26,7 +26,7 @@ public class PropertyDefinition {
     private Long sqnMutProp;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "mutable_properties_sqn" /*,nullable = false*/)
+    @JoinColumn(name = "mutable_properties_sqn")
     private Property properties;
 
     public PropertyDefinition(String nameEnum) {
