@@ -25,6 +25,6 @@ public class PropertyService {
         Property property = modelMapper.map(propertyModel, Property.class);
         property.setCluster(clusterRepository.findById(idCluster).orElse(null));
         propertyRepository.saveAndFlush(property);
-        return propertyRepository.findTop1ByOrderByIdDesc().getId();
+        return propertyRepository.findTopByOrderByIdDesc();
     }
 }
