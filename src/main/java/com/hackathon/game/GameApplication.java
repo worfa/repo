@@ -109,7 +109,7 @@ public class GameApplication {
 
 			Hero azok = new Hero(
 					"Азок Осквернитель",
-					"https://robohash.org/officiisquiaest.png?size=50x50&set=set1",
+					"https://robohash.org/isteitaquedolor.png?size=50x50&set=set1",
 					"Азок Осквернитель, персонаж Властелина колец",
 					LocalDate.now(),
 					ironBank,
@@ -119,12 +119,22 @@ public class GameApplication {
 
 			Hero legolas = new Hero(
 					"Леголас",
-					"https://robohash.org/officiisquiaest.png?size=50x50&set=set1",
+					"https://robohash.org/culpadictaquia.png?size=50x50&set=set1",
 					"Леголас, персонаж Властелина колец",
 					LocalDate.now(),
 					thePiratesOfTheSouthernSea,
 					archer,
 					elf
+			);
+
+			Hero sarumanTheWise = new Hero(
+					"Саруман Мудрый",
+					"https://robohash.org/quamrepellenduset.png?size=50x50&set=set1",
+					"Саруман, персонаж Властелина колец",
+					LocalDate.now(),
+					warlocksClan,
+					magician,
+					human
 			);
 
 			heroRepository.save(bilbo);
