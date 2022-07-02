@@ -20,13 +20,13 @@ public class PropertyDefinitionService {
         PropertyDefinition propertyDefinition = modelMapper.map(propertyDefinitionModel, PropertyDefinition.class);
         propertyDefinition.setProperties(propertyRepository.findById(propertyDefinitionModel.getIdMutProp()).orElse(null));
         propertyDefinitionRepository.saveAndFlush(propertyDefinition);
-        return propertyDefinitionRepository.findTopByOrderByIdDesc();
+        return propertyDefinitionRepository.findTopByOrderByIdDesc().getId();
     }
 
     public Long create(PropertyDefinitionModel propertyDefinitionModel, Long idProperty){
         PropertyDefinition propertyDefinition = modelMapper.map(propertyDefinitionModel, PropertyDefinition.class);
         propertyDefinition.setProperties(propertyRepository.findById(idProperty).orElse(null));
         propertyDefinitionRepository.saveAndFlush(propertyDefinition);
-        return propertyDefinitionRepository.findTopByOrderByIdDesc();
+        return propertyDefinitionRepository.findTopByOrderByIdDesc().getId();
     }
 }
