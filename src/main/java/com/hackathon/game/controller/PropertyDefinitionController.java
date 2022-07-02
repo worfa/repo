@@ -17,8 +17,8 @@ public class PropertyDefinitionController {
 
     @PostMapping(value = "/definition", produces = MediaTypes.HAL_JSON_VALUE)
     @ResponseBody
-    public void create(
-            @RequestBody PropertyDefinitionModel mpEnumModel) {
-        propertyDefinitionService.create(mpEnumModel);
+    public Long create(
+            @RequestBody PropertyDefinitionModel propertyDefinitionModel) {
+       return propertyDefinitionService.create(propertyDefinitionModel);
     }
 }
