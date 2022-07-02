@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 @RequiredArgsConstructor
 @Service
 public class HeroService {
@@ -22,7 +24,11 @@ public class HeroService {
 
     public void create(HeroModel heroModel) {
 
-        Hero hero = modelMapper.map(heroModel, Hero.class);
+        Hero hero = new Hero();
+        hero.setAvatarHero(heroModel.getAvatarHero());
+        hero.setHeroName(heroModel.getHeroName());
+        hero.setDateReg(LocalDate.now());
+        hero.setAbout(heroModel.getAbout());
         hero.setHeroGuild(heroGuildRepository.findById(heroModel.getIdGuild()).orElse(null));
         hero.setHeroRace(heroRaceRepository.findById(heroModel.getIdRace()).orElse(null));
         hero.setHeroClass(heroClassRepository.findById(heroModel.getIdHeroClass()).orElse(null));
