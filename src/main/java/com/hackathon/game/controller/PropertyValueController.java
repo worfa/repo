@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequiredArgsConstructor
 public class PropertyValueController {
 
-    private final PropertyValueService mpValueService;
+    private final PropertyValueService propertyValueService;
 
     @PostMapping(value = "/value", produces = MediaTypes.HAL_JSON_VALUE)
     @ResponseBody
     public void create(
-            @RequestBody PropertyValueModel mpValueModel) {
-        mpValueService.create(mpValueModel);
+            @RequestBody PropertyValueModel propertyValueModel) {
+        propertyValueService.create(propertyValueModel);
     }
 }

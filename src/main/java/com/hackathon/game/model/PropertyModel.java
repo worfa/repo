@@ -3,7 +3,7 @@ package com.hackathon.game.model;
 import lombok.Data;
 
 @Data
-public class MutablePropertyModel {
+public class PropertyModel {
 
     private String nameProp;
 

@@ -20,9 +20,6 @@ public class PropertyDefinition {
     @Column(name = "name_enum")
     private String nameEnum;
 
-    @Column(name = "sqn_mut_prop")
-    private Long sqnMutProp;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "mutable_properties_sqn", nullable = false)
     private Property properties;

@@ -8,5 +8,4 @@ public class ClusterModel {
     private String nameCluster;
 
     private String definition;
-
 }

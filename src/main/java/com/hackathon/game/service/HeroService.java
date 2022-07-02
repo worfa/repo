@@ -7,35 +7,25 @@ import com.hackathon.game.repository.HeroGuildRepository;
 import com.hackathon.game.repository.HeroRaceRepository;
 import com.hackathon.game.repository.HeroRepository;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class HeroServiceImpl {
+public class HeroService {
 
     private final HeroClassRepository heroClassRepository;
     private final HeroGuildRepository heroGuildRepository;
     private final HeroRaceRepository heroRaceRepository;
     private final HeroRepository heroRepository;
+    private final ModelMapper modelMapper;
 
     public void create(HeroModel heroModel) {
 
-        Hero hero = convertToEntity(heroModel);
-        heroRepository.saveAndFlush(hero);
-    }
-
-    private Hero convertToEntity(HeroModel heroModel){
-
-        Hero hero = new Hero();
-
-        hero.setHeroName(heroModel.getHeroName());
-        hero.setAvatarHero(heroModel.getAvatarHero());
-        hero.setAbout(heroModel.getAbout());
-        hero.setDateReg(heroModel.getDateReg());
+        Hero hero = modelMapper.map(heroModel, Hero.class);
         hero.setHeroGuild(heroGuildRepository.findById(heroModel.getIdGuild()).orElse(null));
         hero.setHeroRace(heroRaceRepository.findById(heroModel.getIdRace()).orElse(null));
         hero.setHeroClass(heroClassRepository.findById(heroModel.getIdHeroClass()).orElse(null));
-
-        return hero;
+        heroRepository.saveAndFlush(hero);
     }
 }

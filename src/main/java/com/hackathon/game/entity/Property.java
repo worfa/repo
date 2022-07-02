@@ -15,18 +15,14 @@ public class Property {
     @Column(name = "sqn", nullable = false)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sqn_cluster")
-    private Cluster sqnCluster;
-
     @Column(name = "name_prop")
     private String nameProp;
 
     @Column(name = "typeof_mp")
     private String typeofMp;
 
-    @Column(name = "sqn_mp_enum")
-    private Long sqnMpEnum;
+    @OneToMany(mappedBy = "properties")
+    private List<PropertyDefinition> propertyDefinitions;
 
     @OneToMany(mappedBy = "mutableProperty")
     private List<PropertyValue> propertyValues;
