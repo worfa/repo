@@ -83,9 +83,9 @@ public class GameApplication {
 			Property lastActive = new Property("lastActive", "Date", state);
 			Property level = new Property("level", "Integer", state);
 
-			Property hat = new Property("gold", "Enum", loot);
-			Property boots = new Property("lastActive", "Enum", loot);
-			Property armor = new Property("level", "Enum", loot);
+			Property hat = new Property("boot", "Enum", loot);
+			Property boots = new Property("hat", "Enum", loot);
+			Property armor = new Property("body", "Enum", loot);
 
 			propertyRepository.save(healthPoint);
 			propertyRepository.save(mana);
