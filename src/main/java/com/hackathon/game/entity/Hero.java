@@ -30,8 +30,9 @@ public class Hero {
     @Column(name = "sqn_guild")
     private Long sqnGuild;
 
-    @Column(name = "sqn_hero_class")
-    private Long sqnHeroClass;
+    @OneToOne
+    @JoinColumn
+    private HeroClass heroClass;
 
     @Column(name = "sqn_race")
     private Long sqnRace;
