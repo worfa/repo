@@ -15,10 +15,6 @@ public class Property {
     @Column(name = "sqn", nullable = false)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sqn_cluster")
-    private Cluster sqnCluster;
-
     @Column(name = "name_prop")
     private String nameProp;
 
@@ -34,4 +30,11 @@ public class Property {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cluster_sqn", nullable = false)
     private Cluster cluster;
+
+    public Property(String nameProp, String typeofMp, Cluster cluster) {
+        this.nameProp = nameProp;
+        this.typeofMp = typeofMp;
+        this.cluster = cluster;
+
+    }
 }

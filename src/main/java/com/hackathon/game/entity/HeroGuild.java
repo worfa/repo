@@ -17,4 +17,8 @@ public class HeroGuild {
 
     @Column(name = "name_guild")
     private String nameGuild;
+
+    public HeroGuild(String nameGuild) {
+        this.nameGuild = nameGuild;
+    }
 }

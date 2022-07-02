@@ -17,4 +17,8 @@ public class HeroClass {
 
     @Column(name = "name_class")
     private String nameClass;
+
+    public HeroClass(String nameClass) {
+        this.nameClass = nameClass;
+    }
 }

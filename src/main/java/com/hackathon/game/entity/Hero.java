@@ -1,6 +1,7 @@
 package com.hackathon.game.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "hero")
+@NoArgsConstructor
 public class Hero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,4 +44,14 @@ public class Hero {
 
     @OneToMany(mappedBy = "hero", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<PropertyValue> values;
+
+    public Hero(String heroName, String avatarHero, String about, LocalDate dateReg, HeroGuild heroGuild, HeroClass heroClass, HeroRace heroRace) {
+        this.heroName = heroName;
+        this.avatarHero = avatarHero;
+        this.about = about;
+        this.dateReg = dateReg;
+        this.heroGuild = heroGuild;
+        this.heroClass = heroClass;
+        this.heroRace = heroRace;
+    }
 }
