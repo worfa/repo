@@ -19,7 +19,6 @@ public class ClusterController {
 
     private final ClusterService clusterService;
     private final PropertyService propertyService;
-    private final PropertyDefinitionService propertyDefinitionService;
 
     @PostMapping(value = "/cluster", produces = MediaTypes.HAL_JSON_VALUE)
     @ResponseBody
