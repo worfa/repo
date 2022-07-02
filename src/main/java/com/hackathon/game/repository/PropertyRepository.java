@@ -1,7 +1,7 @@
 package com.hackathon.game.repository;
 
 import com.hackathon.game.entity.Property;
-import com.hackathon.game.projection.clusterViews.PropertyView;
+import com.hackathon.game.projection.clusterProjection.PropertyView;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

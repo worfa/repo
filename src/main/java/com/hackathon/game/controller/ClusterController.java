@@ -1,10 +1,7 @@
 package com.hackathon.game.controller;
 
 import com.hackathon.game.model.ClusterModel;
-import com.hackathon.game.model.HeroModel;
-import com.hackathon.game.model.PropertyDefinitionModel;
 import com.hackathon.game.model.PropertyModel;
-import com.hackathon.game.projection.clusterViews.ClusterView;
 import com.hackathon.game.service.ClusterService;
 import com.hackathon.game.service.PropertyDefinitionService;
 import com.hackathon.game.service.PropertyService;

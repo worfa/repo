@@ -1,4 +1,4 @@
-package com.hackathon.game.projection;
+package com.hackathon.game.projection.heroProjection;
 
 import com.hackathon.game.entity.Hero;
 import com.hackathon.game.entity.HeroClass;

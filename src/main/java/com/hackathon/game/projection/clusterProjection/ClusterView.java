@@ -1,4 +1,4 @@
-package com.hackathon.game.projection.clusterViews;
+package com.hackathon.game.projection.clusterProjection;
 
 import com.hackathon.game.entity.Cluster;
 import org.springframework.beans.factory.annotation.Value;
