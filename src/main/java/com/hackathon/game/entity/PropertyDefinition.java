@@ -26,7 +26,9 @@ public class PropertyDefinition {
     @JoinColumn(name = "mutable_properties_sqn")
     private Property properties;
 
-    public PropertyDefinition(String nameEnum) {
+    public PropertyDefinition(String nameEnum, Property properties) {
+
         this.nameEnum = nameEnum;
+        this.properties = properties;
     }
 }
