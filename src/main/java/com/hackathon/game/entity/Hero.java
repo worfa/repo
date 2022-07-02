@@ -1,6 +1,7 @@
 package com.hackathon.game.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -37,7 +38,7 @@ public class Hero {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "race_sqn", nullable = false)
-    private HeroRace sqnRace;
+    private HeroRace heroRace;
 
     @OneToMany(mappedBy = "hero", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<PropertyValue> values;

@@ -22,10 +22,10 @@ public class Cluster {
     @Column(name = "name_cluster")
     private String nameCluster;
 
-    @Column(name = "difinition")
-    private String difinition;
+    @Column(name = "definition")
+    private String definition;
 
     @OneToMany(mappedBy = "cluster", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<MutableProperty> properties;
+    private List<Property> properties;
 
 }

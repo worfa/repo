@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "source_of_chenges")
+@Table(name = "source_of_change")
 public class SourceOfChange {
 
     @Id
@@ -18,5 +18,5 @@ public class SourceOfChange {
     private String nameSource;
 
     @ManyToOne
-    private MutableProperty mutableProperty;
+    private Property mutableProperty;
 }

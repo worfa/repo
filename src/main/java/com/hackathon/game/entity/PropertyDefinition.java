@@ -3,7 +3,6 @@ package com.hackathon.game.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * Entity-класс, enum, справочник изменяемых свойств (MutableProperty)
@@ -24,6 +23,7 @@ public class PropertyDefinition {
     @Column(name = "sqn_mut_prop")
     private Long sqnMutProp;
 
-    @OneToMany(mappedBy = "property_definition", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<MutableProperty> properties;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "mutable_properties_sqn", nullable = false)
+    private Property properties;
 }

@@ -24,9 +24,6 @@ public class PropertyValue {
     @Column(name = "actuality_flag")
     private Boolean actualityFlag;
 
-    @Column(name = "sqn_source")
-    private Long sqnSource;
-
     @Column(name = "date_time_value")
     private LocalDate dateTimeValue;
 
@@ -46,7 +43,7 @@ public class PropertyValue {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "mutable_property_sqn", nullable = false)
-    private MutableProperty mutableProperty;
+    private Property mutableProperty;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "source_of_change_sqn", nullable = false)
