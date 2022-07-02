@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Entity
 @Data
 @Table(name = "mp_values")
-public class MpValue {
+public class PropertyValue {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,9 +25,6 @@ public class MpValue {
     @Column(name = "actuality_flag")
     private Boolean actualityFlag;
 
-    @Column(name = "sqn_source")
-    private SourceOfChange sourceOfChange;
-
     @Column(name = "date_time_value")
     private LocalDate dateTimeValue;
 
@@ -37,12 +34,20 @@ public class MpValue {
     @Column(name = "string_value")
     private String stringValue;
 
-    @Column(name = "sqn_enum_mp")
-    private MpEnum mpEnum;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "property_definition_sqn", nullable = false)
+    private PropertyDefinition propertyDefinition;
 
-    @Column(name = "sqn_mutable_property")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "hero_sqn", nullable = false)
+    private Hero hero;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "mutable_property_sqn", nullable = false)
     private MutableProperty mutableProperty;
 
-    @Column(name = "sqn_hero")
-    private Hero hero;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "source_of_change_sqn", nullable = false)
+    private SourceOfChange sourceOfChange;
+
 }

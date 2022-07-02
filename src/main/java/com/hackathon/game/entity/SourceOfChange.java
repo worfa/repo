@@ -1,6 +1,7 @@
 package com.hackathon.game.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
@@ -16,4 +17,7 @@ public class SourceOfChange {
 
     @Column(name = "name_source")
     private String nameSource;
+
+    @ManyToOne
+    private MutableProperty mutableProperty;
 }

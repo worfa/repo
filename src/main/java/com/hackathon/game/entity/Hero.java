@@ -5,6 +5,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -27,13 +28,18 @@ public class Hero {
     @Column(name = "date_reg")
     private LocalDate dateReg;
 
-    @Column(name = "sqn_guild")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "hero_guild_sqn")
     private HeroGuild heroGuild;
 
-    @OneToOne
-    @JoinColumn
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "hero_class_sqn", nullable = false)
     private HeroClass heroClass;
 
-    @Column(name = "sqn_race")
-    private HeroRace heroRace;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "race_sqn", nullable = false)
+    private HeroRace sqnRace;
+
+    @OneToMany(mappedBy = "hero", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<PropertyValue> values;
 }
