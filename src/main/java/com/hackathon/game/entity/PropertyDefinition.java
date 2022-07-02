@@ -1,6 +1,7 @@
 package com.hackathon.game.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @Table(name = "mp_enum")
+@NoArgsConstructor
 public class PropertyDefinition {
 
     @Id
@@ -24,6 +26,10 @@ public class PropertyDefinition {
     private Long sqnMutProp;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "mutable_properties_sqn", nullable = false)
+    @JoinColumn(name = "mutable_properties_sqn" /*,nullable = false*/)
     private Property properties;
+
+    public PropertyDefinition(String nameEnum) {
+        this.nameEnum = nameEnum;
+    }
 }

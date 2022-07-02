@@ -28,4 +28,8 @@ public class Cluster {
     @OneToMany(mappedBy = "cluster", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Property> properties;
 
+    public Cluster(String nameCluster, String definition) {
+        this.nameCluster = nameCluster;
+        this.definition = definition;
+    }
 }
