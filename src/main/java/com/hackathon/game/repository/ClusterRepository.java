@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RepositoryRestResource(excerptProjection = ClusterView.class, collectionResourceRel = "cluster", path = "cluster")
 public interface ClusterRepository extends JpaRepository<Cluster, Long> {
 
-    Long findTopByOrderByIdDesc();
+    Cluster findTopByOrderByIdDesc();
 }

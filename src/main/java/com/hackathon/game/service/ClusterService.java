@@ -17,6 +17,6 @@ public class ClusterService {
     public Long create(ClusterModel clusterModel) {
        Cluster cluster = modelMapper.map(clusterModel, Cluster.class);
        clusterRepository.saveAndFlush(cluster);
-       return clusterRepository.findTopByOrderByIdDesc();
+       return clusterRepository.findTopByOrderByIdDesc().getId();
     }
 }

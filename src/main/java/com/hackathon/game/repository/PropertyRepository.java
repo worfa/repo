@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RepositoryRestResource(excerptProjection = PropertyView.class ,collectionResourceRel = "property", path = "property")
 public interface PropertyRepository extends JpaRepository<Property, Long> {
 
-    Long findTopByOrderByIdDesc();
+    Property findTopByOrderByIdDesc();
 }
