@@ -1,11 +1,13 @@
 package com.hackathon.game.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@NoArgsConstructor
 @Table(name = "source_of_change")
 public class SourceOfChange {
 
