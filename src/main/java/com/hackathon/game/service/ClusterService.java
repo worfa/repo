@@ -19,8 +19,9 @@ public class ClusterService {
     private final ModelMapper modelMapper;
     private final ClusterRepository clusterRepository;
 
-    public void create(ClusterModel clusterModel) {
+    public Long create(ClusterModel clusterModel) {
        Cluster cluster = modelMapper.map(clusterModel, Cluster.class);
        clusterRepository.saveAndFlush(cluster);
+       return clusterRepository.findTop1ByOrderByIdDesc().getId();
     }
 }

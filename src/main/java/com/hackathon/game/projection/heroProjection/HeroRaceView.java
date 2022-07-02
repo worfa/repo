@@ -12,5 +12,5 @@ public interface HeroRaceView {
     @Value("#{target.id}")
     Long getId();
 
-    String getNameRace();
+    String getRaceName();
 }

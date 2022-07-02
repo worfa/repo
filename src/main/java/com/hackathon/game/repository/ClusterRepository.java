@@ -10,4 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RepositoryRestResource(excerptProjection = ClusterView.class, collectionResourceRel = "cluster", path = "cluster")
 public interface ClusterRepository extends JpaRepository<Cluster, Long> {
+
+    Cluster findTop1ByOrderByIdDesc();
 }
