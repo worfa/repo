@@ -1,6 +1,7 @@
 package com.hackathon.game.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @Table(name = "hero_class")
+@NoArgsConstructor
 public class HeroClass {
 
     @Id
@@ -17,4 +19,8 @@ public class HeroClass {
 
     @Column(name = "name_class")
     private String nameClass;
+
+    public HeroClass(String nameClass) {
+        this.nameClass = nameClass;
+    }
 }
