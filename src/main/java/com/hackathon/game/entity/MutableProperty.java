@@ -17,14 +17,12 @@ public class MutableProperty {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sqn_cluster")
-    private MpCluster sqnCluster;
+    private MpCluster mpCluster;
 
     @Column(name = "name_prop")
-    @Type(type = "org.hibernate.type.TextType")
     private String nameProp;
 
     @Column(name = "typeof_mp")
-    @Type(type = "org.hibernate.type.TextType")
     private String typeofMp;
 
     @Column(name = "sqn_mp_enum")

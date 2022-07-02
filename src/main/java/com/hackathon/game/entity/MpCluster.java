@@ -1,7 +1,6 @@
 package com.hackathon.game.entity;
 
 import lombok.Data;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
@@ -18,7 +17,7 @@ public class MpCluster {
     @Column(name = "name_cluster")
     private String nameCluster;
 
-    @Column(name = "difinition")
-    private String difinition;
+    @Column(name = "definition")
+    private String definition;
 
 }

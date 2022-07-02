@@ -26,7 +26,7 @@ public class MpValue {
     private Boolean actualityFlag;
 
     @Column(name = "sqn_source")
-    private Long sqnSource;
+    private SourceOfChange sourceOfChange;
 
     @Column(name = "date_time_value")
     private LocalDate dateTimeValue;
@@ -38,5 +38,11 @@ public class MpValue {
     private String stringValue;
 
     @Column(name = "sqn_enum_mp")
-    private Long sqnEnumMp;
+    private MpEnum mpEnum;
+
+    @Column(name = "sqn_mutable_property")
+    private MutableProperty mutableProperty;
+
+    @Column(name = "sqn_hero")
+    private Hero hero;
 }

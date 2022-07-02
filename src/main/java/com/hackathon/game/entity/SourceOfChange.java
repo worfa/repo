@@ -1,14 +1,13 @@
 package com.hackathon.game.entity;
 
 import lombok.Data;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "source_of_chenges")
-public class SourceOfChenge {
+@Table(name = "source_of_change")
+public class SourceOfChange {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

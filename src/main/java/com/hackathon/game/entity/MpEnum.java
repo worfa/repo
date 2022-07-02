@@ -19,5 +19,5 @@ public class MpEnum {
     private String nameEnum;
 
     @Column(name = "sqn_mut_prop")
-    private Long sqnMutProp;
+    private MutableProperty mutProp;
 }

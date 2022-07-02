@@ -28,12 +28,12 @@ public class Hero {
     private LocalDate dateReg;
 
     @Column(name = "sqn_guild")
-    private Long sqnGuild;
+    private HeroGuild heroGuild;
 
     @OneToOne
     @JoinColumn
     private HeroClass heroClass;
 
     @Column(name = "sqn_race")
-    private Long sqnRace;
+    private HeroRace heroRace;
 }
