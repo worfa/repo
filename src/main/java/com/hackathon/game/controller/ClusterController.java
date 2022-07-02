@@ -22,15 +22,15 @@ public class ClusterController {
 
     @PostMapping(value = "/cluster", produces = MediaTypes.HAL_JSON_VALUE)
     @ResponseBody
-    public void create (
+    public Long create (
             @RequestBody ClusterModel clusterModel) {
-        clusterService.create(clusterModel);
+        return clusterService.create(clusterModel);
     }
 
     @PostMapping(value = "/cluster/{id}/properties", produces = MediaTypes.HAL_JSON_VALUE)
     @ResponseBody
-    public void createClusterProperty(@RequestBody PropertyModel propertyModel, @PathVariable Long id) {
-        propertyService.create(propertyModel, id);
+    public Long createClusterProperty(@RequestBody PropertyModel propertyModel, @PathVariable Long id) {
+        return propertyService.create(propertyModel, id);
     }
 
 
