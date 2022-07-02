@@ -1,7 +1,6 @@
 package com.hackathon.game.entity;
 
 import lombok.Data;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "mutable_properties")
-public class MutableProperty {
+public class Property {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,14 +28,10 @@ public class MutableProperty {
     @Column(name = "sqn_mp_enum")
     private Long sqnMpEnum;
 
-    @OneToMany(mappedBy = "property")
+    @OneToMany(mappedBy = "mutableProperty")
     private List<PropertyValue> propertyValues;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cluster_sqn", nullable = false)
     private Cluster cluster;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "property_definition_sqn", nullable = false)
-    private PropertyDefinition propertyDefinition;
 }

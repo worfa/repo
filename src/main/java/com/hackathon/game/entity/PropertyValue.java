@@ -1,7 +1,6 @@
 package com.hackathon.game.entity;
 
 import lombok.Data;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -44,7 +43,7 @@ public class PropertyValue {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "mutable_property_sqn", nullable = false)
-    private MutableProperty mutableProperty;
+    private Property mutableProperty;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "source_of_change_sqn", nullable = false)

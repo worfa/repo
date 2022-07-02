@@ -26,6 +26,6 @@ public class Cluster {
     private String definition;
 
     @OneToMany(mappedBy = "cluster", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<MutableProperty> properties;
+    private List<Property> properties;
 
 }

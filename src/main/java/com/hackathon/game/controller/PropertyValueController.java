@@ -1,9 +1,7 @@
 package com.hackathon.game.controller;
 
-import com.hackathon.game.model.HeroModel;
-import com.hackathon.game.model.MpEnumModel;
-import com.hackathon.game.service.EnumService;
-import com.hackathon.game.service.HeroServiceImpl;
+import com.hackathon.game.model.PropertyValueModel;
+import com.hackathon.game.service.PropertyValueService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.hateoas.MediaTypes;
@@ -13,14 +11,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @RepositoryRestController
 @RequiredArgsConstructor
-public class EnumController {
+public class PropertyValueController {
 
-    private final EnumService enumService;
+    private final PropertyValueService mpValueService;
 
-    @PostMapping(value = "/enums", produces = MediaTypes.HAL_JSON_VALUE)
+    @PostMapping(value = "/value", produces = MediaTypes.HAL_JSON_VALUE)
     @ResponseBody
     public void create(
-            @RequestBody MpEnumModel mpEnumModel) {
-        enumService.create(mpEnumModel);
+            @RequestBody PropertyValueModel mpValueModel) {
+        mpValueService.create(mpValueModel);
     }
 }
