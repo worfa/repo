@@ -1,12 +1,14 @@
 package com.hackathon.game.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
 @Table(name = "hero_race")
+@NoArgsConstructor
 public class HeroRace {
 
     @Id
