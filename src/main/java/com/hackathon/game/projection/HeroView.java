@@ -28,6 +28,4 @@ public interface HeroView {
     HeroGuild getHeroGuild();
 
     HeroClass getHeroClass();
-
-    Hero getHero();
 }
