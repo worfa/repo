@@ -1,6 +1,7 @@
 package com.hackathon.game.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
  * */
 @Entity
 @Data
+@NoArgsConstructor
 @Table(name = "mp_cluster")
 public class Cluster {
 
