@@ -50,8 +50,9 @@ public class GameApplication {
 			PropertyDefinition textile = new PropertyDefinition("textile");
 			PropertyDefinition steel = new PropertyDefinition("steel");
 
-			Cluster loot = new Cluster("Loot", "Игровые предметы, необходимые герою");
-			Cluster state = new Cluster("State", "Атрибуты, описывыающие состояние персонажа");
+			propertyDefinitionRepository.save(leather);
+			propertyDefinitionRepository.save(textile);
+			propertyDefinitionRepository.save(steel);
 
 			heroClassRepository.save(warrior);
 			heroClassRepository.save(archer);
@@ -68,9 +69,11 @@ public class GameApplication {
 			heroRaceRepository.save(human);
 			heroRaceRepository.save(undead);
 
-			propertyDefinitionRepository.save(leather);
-			propertyDefinitionRepository.save(textile);
-			propertyDefinitionRepository.save(steel);
+			Cluster loot = new Cluster("Loot", "Игровые предметы, необходимые герою");
+			Cluster state = new Cluster("State", "Атрибуты, описывыающие состояние персонажа");
+
+			clusterRepository.save(loot);
+			clusterRepository.save(state);
 
 			Property healthPoint = new Property("healthPoint", "Integer", state);
 			Property mana = new Property("mana", "Integer", state);
@@ -81,6 +84,12 @@ public class GameApplication {
 			Property hat = new Property("gold", "Enum", loot);
 			Property boots = new Property("lastActive", "Enum", loot);
 			Property armor = new Property("level", "Enum", loot);
+
+			propertyRepository.save(healthPoint);
+			propertyRepository.save(mana);
+			propertyRepository.save(gold);
+			propertyRepository.save(lastActive);
+			propertyRepository.save(level);
 
 			propertyRepository.save(hat);
 			propertyRepository.save(boots);

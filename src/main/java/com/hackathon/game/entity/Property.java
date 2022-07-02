@@ -1,6 +1,7 @@
 package com.hackathon.game.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "mutable_properties")
+@NoArgsConstructor
 public class Property {
 
     @Id
@@ -28,7 +30,7 @@ public class Property {
     private List<PropertyValue> propertyValues;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "cluster_sqn", nullable = false)
+    @JoinColumn(name = "cluster_sqn"/*, nullable = false*/)
     private Cluster cluster;
 
     public Property(String nameProp, String typeofMp, Cluster cluster) {
