@@ -241,6 +241,9 @@ public class GameApplication {
 			azokGold.setNumberValue(100L);
 			azokGold.setProperty(gold);
 
+			propertyValueRepository.save(bilboHealth);
+			propertyValueRepository.save(bilboHealth1);
+			propertyValueRepository.save(bilboHealth2);
 			propertyValueRepository.save(bilboHealth3);
 			propertyValueRepository.save(bilboGold);
 			propertyValueRepository.save(azokGold);
