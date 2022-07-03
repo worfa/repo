@@ -187,7 +187,7 @@ public class GameApplication {
 			bilboHealth.setHero(bilbo);
 			bilboHealth.setSourceOfChange(getInGame);
 			bilboHealth.setNumberValue(100L);
-			bilboHealth.setMutableProperty(healthPoint);
+			bilboHealth.setProperty(healthPoint);
 
 			PropertyValue bilboGold = new PropertyValue();
 			bilboGold.setActualityFlag(true);
@@ -195,7 +195,7 @@ public class GameApplication {
 			bilboGold.setHero(bilbo);
 			bilboGold.setSourceOfChange(getInGame);
 			bilboGold.setNumberValue(100L);
-			bilboGold.setMutableProperty(gold);
+			bilboGold.setProperty(gold);
 
 			PropertyValue azokHealth = new PropertyValue();
 			azokHealth.setActualityFlag(true);
@@ -203,7 +203,7 @@ public class GameApplication {
 			azokHealth.setHero(azok);
 			azokHealth.setSourceOfChange(getInGame);
 			azokHealth.setNumberValue(100L);
-			azokHealth.setMutableProperty(healthPoint);
+			azokHealth.setProperty(healthPoint);
 
 			PropertyValue azokGold = new PropertyValue();
 			azokGold.setActualityFlag(true);
@@ -211,7 +211,7 @@ public class GameApplication {
 			azokGold.setHero(bilbo);
 			azokGold.setSourceOfChange(getInGame);
 			azokGold.setNumberValue(100L);
-			azokGold.setMutableProperty(gold);
+			azokGold.setProperty(gold);
 
 			propertyValueRepository.save(bilboHealth);
 			propertyValueRepository.save(bilboGold);
