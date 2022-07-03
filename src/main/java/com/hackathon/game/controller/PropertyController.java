@@ -7,10 +7,7 @@ import com.hackathon.game.service.PropertyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.hateoas.MediaTypes;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @RepositoryRestController
 @RequiredArgsConstructor
@@ -21,8 +18,7 @@ public class PropertyController {
 
     @PostMapping(value = "/property", produces = MediaTypes.HAL_JSON_VALUE)
     @ResponseBody
-    public void createComments(
-            @RequestBody PropertyModel propertyModel) {
+    public void createProperty(@RequestBody PropertyModel propertyModel) {
         propertyService.create(propertyModel);
     }
 
@@ -31,5 +27,11 @@ public class PropertyController {
     public Long createPropertyDefinition(@RequestBody PropertyDefinitionModel propertyDefinitionModel,
                                                         @PathVariable Long id) {
         return propertyDefinitionService.create(propertyDefinitionModel, id);
+    }
+
+    @PutMapping(value = "/property/{id}", produces = MediaTypes.HAL_JSON_VALUE)
+    @ResponseBody
+    public void updateProperty (@RequestBody PropertyModel propertyModel, @PathVariable Long id) {
+        propertyService.update(propertyModel, id);
     }
 }

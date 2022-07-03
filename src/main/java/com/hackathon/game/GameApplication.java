@@ -163,7 +163,10 @@ public class GameApplication {
 
 	@Bean
 	public ModelMapper getMapper() {
-		return new ModelMapper();
+		ModelMapper modelMapper = new ModelMapper();
+		modelMapper.getConfiguration().setSkipNullEnabled(true);
+
+		return modelMapper;
 	}
 
 }

@@ -27,4 +27,11 @@ public class PropertyService {
         propertyRepository.saveAndFlush(property);
         return propertyRepository.findTopByOrderByIdDesc().getId();
     }
+
+    public void update (PropertyModel propertyModel, Long idProperty) {
+        Property property = modelMapper.map(propertyModel, Property.class);
+        Property propertyOfBd = propertyRepository.findById(idProperty).orElse(null);
+        modelMapper.map(property, propertyOfBd);
+        propertyRepository.saveAndFlush(propertyOfBd);
+    }
 }
