@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class GameApplication {
@@ -30,7 +29,7 @@ public class GameApplication {
 			PropertyRepository propertyRepository,
 			PropertyDefinitionRepository propertyDefinitionRepository,
 			HeroRepository heroRepository,
-			SourceOfChengeRepository sourceOfChengeRepository,
+			SourceOfChangeRepository sourceOfChangeRepository,
 			PropertyValueRepository propertyValueRepository
 	){
 		return args -> {
@@ -61,11 +60,11 @@ public class GameApplication {
 			SourceOfChange levelUp = new SourceOfChange("Повышение уровня");
 			SourceOfChange levelDown = new SourceOfChange("Понижение уровня");
 
-			sourceOfChengeRepository.save(getInGame);
-			sourceOfChengeRepository.save(stopPlaying);
-			sourceOfChengeRepository.save(buyLoot);
-			sourceOfChengeRepository.save(levelDown);
-			sourceOfChengeRepository.save(levelUp);
+			sourceOfChangeRepository.save(getInGame);
+			sourceOfChangeRepository.save(stopPlaying);
+			sourceOfChangeRepository.save(buyLoot);
+			sourceOfChangeRepository.save(levelDown);
+			sourceOfChangeRepository.save(levelUp);
 
 			propertyDefinitionRepository.save(leather);
 			propertyDefinitionRepository.save(textile);
