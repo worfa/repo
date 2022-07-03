@@ -26,7 +26,7 @@ public class Property {
     @OneToMany(mappedBy = "properties")
     private List<PropertyDefinition> propertyDefinitions;
 
-    @OneToMany(mappedBy = "mutableProperty")
+    @OneToMany(mappedBy = "property")
     private List<PropertyValue> propertyValues;
 
     @ManyToOne(fetch = FetchType.EAGER)
