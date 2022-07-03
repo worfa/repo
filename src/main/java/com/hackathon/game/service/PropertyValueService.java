@@ -7,6 +7,10 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class PropertyValueService {
@@ -25,5 +29,12 @@ public class PropertyValueService {
         propertyValue.setPropertyDefinition(propertyDefinitionRepository.findById(propertyValueModel.getIdEnumMp()).orElse(null));
         propertyValue.setSourceOfChange(sourceOfChengeRepository.findById(propertyValueModel.getIdSourceOfChange()).orElse(null));
         propertyValueRepository.saveAndFlush(propertyValue);
+    }
+
+    public List<PropertyValue> findValuesByUserIdDateAndSourceChange(Long heroId, String beginDate,
+                                                                Long sourceChangeId) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        return propertyValueRepository.getByDateUserIdAndSourceChange(heroId, LocalDate.parse(beginDate, formatter),
+                sourceChangeId);
     }
 }
