@@ -179,6 +179,7 @@ public class GameApplication {
 			heroRepository.save(bilbo);
 			heroRepository.save(azok);
 			heroRepository.save(legolas);
+			heroRepository.save(sarumanTheWise);
 
 			PropertyValue bilboHealth = new PropertyValue();
 			bilboHealth.setActualityFlag(true);
@@ -216,10 +217,7 @@ public class GameApplication {
 			propertyValueRepository.save(bilboGold);
 			propertyValueRepository.save(azokGold);
 			propertyValueRepository.save(azokHealth);
-
 		};
-
-
 	}
 
 	@Bean
