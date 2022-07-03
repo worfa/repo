@@ -22,7 +22,7 @@ public class PropertyController {
         propertyService.create(propertyModel);
     }
 
-    @PostMapping(value = "/property/{id}/definition", produces = MediaTypes.HAL_JSON_VALUE)
+    @PostMapping(value = "/property/{id}/propertyDefinitions", produces = MediaTypes.HAL_JSON_VALUE)
     @ResponseBody
     public Long createPropertyDefinition(@RequestBody PropertyDefinitionModel propertyDefinitionModel,
                                                         @PathVariable Long id) {

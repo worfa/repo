@@ -2,6 +2,7 @@ package com.hackathon.game.controller;
 
 import com.hackathon.game.entity.PropertyValue;
 import com.hackathon.game.model.PropertyValueModel;
+import com.hackathon.game.model.ValueUpdateModel;
 import com.hackathon.game.service.PropertyValueService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -35,5 +36,11 @@ public class PropertyValueController {
                 beginDate,
                 sourceChangeId
         );
+    }
+
+    @PutMapping(path = "/value", produces = MediaTypes.HAL_JSON_VALUE)
+    @ResponseBody
+    public void update(@RequestBody ValueUpdateModel valueUpdateModel ){
+        propertyValueService.update();
     }
 }

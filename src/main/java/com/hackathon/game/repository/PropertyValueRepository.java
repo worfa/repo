@@ -1,5 +1,6 @@
 package com.hackathon.game.repository;
 
+import com.hackathon.game.entity.Hero;
 import com.hackathon.game.entity.PropertyValue;
 import com.hackathon.game.projection.clusterProjection.ClusterView;
 import com.hackathon.game.projection.propertyValueProjection.PropertyValueView;
@@ -23,4 +24,8 @@ public interface PropertyValueRepository extends JpaRepository<PropertyValue, Lo
             @Param("heroId") Long heroId,
             @Param("beginDate") LocalDate beginDate,
             @Param("sourceChangeId") Long sourceChangeId);
+
+    List<PropertyValue> getByHeroAndActualityFlag(
+            Hero hero,
+            Boolean actualityFlag);
 }

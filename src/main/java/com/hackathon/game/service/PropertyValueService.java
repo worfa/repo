@@ -19,7 +19,7 @@ public class PropertyValueService {
     private final PropertyRepository propertyRepository;
     private final HeroRepository heroRepository;
     private final PropertyDefinitionRepository propertyDefinitionRepository;
-    private final SourceOfChengeRepository sourceOfChengeRepository;
+    private final SourceOfChangeRepository sourceOfChangeRepository;
     private final ModelMapper modelMapper;
 
     public void create(PropertyValueModel propertyValueModel) {
@@ -27,7 +27,7 @@ public class PropertyValueService {
         propertyValue.setProperty(propertyRepository.findById(propertyValueModel.getIdMutProp()).orElse(null));
         propertyValue.setHero(heroRepository.findById(propertyValueModel.getIdUser()).orElse(null));
         propertyValue.setPropertyDefinition(propertyDefinitionRepository.findById(propertyValueModel.getIdEnumMp()).orElse(null));
-        propertyValue.setSourceOfChange(sourceOfChengeRepository.findById(propertyValueModel.getIdSourceOfChange()).orElse(null));
+        propertyValue.setSourceOfChange(sourceOfChangeRepository.findById(propertyValueModel.getIdSourceOfChange()).orElse(null));
         propertyValueRepository.saveAndFlush(propertyValue);
     }
 
@@ -39,5 +39,9 @@ public class PropertyValueService {
                 heroId,
                 LocalDate.parse(beginDate, formatter),
                 sourceChangeId);
+    }
+
+    public void update(){
+
     }
 }

@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class GameApplication {
@@ -30,7 +29,7 @@ public class GameApplication {
 			PropertyRepository propertyRepository,
 			PropertyDefinitionRepository propertyDefinitionRepository,
 			HeroRepository heroRepository,
-			SourceOfChengeRepository sourceOfChengeRepository,
+			SourceOfChangeRepository sourceOfChangeRepository,
 			PropertyValueRepository propertyValueRepository
 	){
 		return args -> {
@@ -61,11 +60,11 @@ public class GameApplication {
 			SourceOfChange levelUp = new SourceOfChange("Повышение уровня");
 			SourceOfChange levelDown = new SourceOfChange("Понижение уровня");
 
-			sourceOfChengeRepository.save(getInGame);
-			sourceOfChengeRepository.save(stopPlaying);
-			sourceOfChengeRepository.save(buyLoot);
-			sourceOfChengeRepository.save(levelDown);
-			sourceOfChengeRepository.save(levelUp);
+			sourceOfChangeRepository.save(getInGame);
+			sourceOfChangeRepository.save(stopPlaying);
+			sourceOfChangeRepository.save(buyLoot);
+			sourceOfChangeRepository.save(levelDown);
+			sourceOfChangeRepository.save(levelUp);
 
 			propertyDefinitionRepository.save(leather);
 			propertyDefinitionRepository.save(textile);
@@ -183,12 +182,40 @@ public class GameApplication {
 			heroRepository.save(sarumanTheWise);
 
 			PropertyValue bilboHealth = new PropertyValue();
-			bilboHealth.setActualityFlag(true);
-			bilboHealth.setDateBegin(LocalDate.now());
+			bilboHealth.setActualityFlag(false);
+			bilboHealth.setDateBegin(LocalDate.of(2022, 07,02));
 			bilboHealth.setHero(bilbo);
 			bilboHealth.setSourceOfChange(getInGame);
-			bilboHealth.setNumberValue(100L);
+			bilboHealth.setNumberValue(50L);
 			bilboHealth.setProperty(healthPoint);
+			bilboHealth.setDateEnd(LocalDate.of(2022, 07 , 03));
+
+
+			PropertyValue bilboHealth1 = new PropertyValue();
+			bilboHealth1.setActualityFlag(false);
+			bilboHealth1.setDateBegin(LocalDate.now());
+			bilboHealth1.setHero(bilbo);
+			bilboHealth1.setSourceOfChange(getInGame);
+			bilboHealth1.setNumberValue(60L);
+			bilboHealth1.setProperty(healthPoint);
+			bilboHealth1.setDateEnd(LocalDate.now());
+
+			PropertyValue bilboHealth2 = new PropertyValue();
+			bilboHealth2.setActualityFlag(false);
+			bilboHealth2.setDateBegin(LocalDate.now());
+			bilboHealth2.setHero(bilbo);
+			bilboHealth2.setSourceOfChange(getInGame);
+			bilboHealth2.setNumberValue(70L);
+			bilboHealth2.setProperty(healthPoint);
+			bilboHealth2.setDateEnd(LocalDate.now());
+
+			PropertyValue bilboHealth3 = new PropertyValue();
+			bilboHealth3.setActualityFlag(true);
+			bilboHealth3.setDateBegin(LocalDate.now());
+			bilboHealth3.setHero(bilbo);
+			bilboHealth3.setSourceOfChange(getInGame);
+			bilboHealth3.setNumberValue(100L);
+			bilboHealth3.setProperty(healthPoint);
 
 			PropertyValue bilboGold = new PropertyValue();
 			bilboGold.setActualityFlag(true);
@@ -215,6 +242,9 @@ public class GameApplication {
 			azokGold.setProperty(gold);
 
 			propertyValueRepository.save(bilboHealth);
+			propertyValueRepository.save(bilboHealth1);
+			propertyValueRepository.save(bilboHealth2);
+			propertyValueRepository.save(bilboHealth3);
 			propertyValueRepository.save(bilboGold);
 			propertyValueRepository.save(azokGold);
 			propertyValueRepository.save(azokHealth);
