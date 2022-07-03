@@ -1,13 +1,13 @@
 package com.hackathon.game.controller;
 
+import com.hackathon.game.model.HeroClassModel;
+import com.hackathon.game.model.HeroClusterModel;
 import com.hackathon.game.model.HeroModel;
 import com.hackathon.game.service.HeroService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.hateoas.MediaTypes;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @RepositoryRestController
 @RequiredArgsConstructor
@@ -21,4 +21,9 @@ public class HeroController {
             @RequestBody HeroModel heroModel) {
         heroService.create(heroModel);
     }
+
+//    @GetMapping(value = "/hero/{id}", produces = MediaTypes.HAL_JSON_VALUE)
+//    public HeroClusterModel getHeroCluster(@PathVariable Long id) {
+//        return heroService.getHeroCluster(id);
+//    }
 }

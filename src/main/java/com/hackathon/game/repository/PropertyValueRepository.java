@@ -22,4 +22,8 @@ public interface PropertyValueRepository extends JpaRepository<PropertyValue, Lo
             @Param("heroId") Long heroId,
             @Param("beginDate") LocalDate beginDate,
             @Param("sourceChangeId") Long sourceChangeId);
+
+    List<PropertyValue> getByHeroAndActualityFlag(
+            Long heroId,
+            Boolean actualityFlag);
 }
