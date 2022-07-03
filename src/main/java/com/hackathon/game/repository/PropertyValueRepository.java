@@ -15,9 +15,7 @@ import java.util.List;
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RepositoryRestResource(collectionResourceRel = "value", path = "value")
 public interface PropertyValueRepository extends JpaRepository<PropertyValue, Long> {
-//
-//
-//    @RestResource(path = "byHeroIdAndBeginDateAndSourceChange", rel = "customFindMethod")
+
     @Query(value = "SELECT p FROM PropertyValue p WHERE p.hero.id = :heroId and p.dateBegin = :beginDate and " +
             "p.sourceOfChange.id = :sourceChangeId and p.actualityFlag = TRUE")
     List<PropertyValue> getByDateUserIdAndSourceChange(

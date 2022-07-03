@@ -31,4 +31,9 @@ public class PropertyDefinition {
         this.nameEnum = nameEnum;
         this.properties = properties;
     }
+
+    public PropertyDefinition(String nameEnum) {
+
+        this.nameEnum = nameEnum;
+    }
 }

@@ -36,7 +36,7 @@ public class PropertyValue {
     private String stringValue;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "property_definition_sqn", nullable = false)
+    @JoinColumn(name = "property_definition_sqn")
     private PropertyDefinition propertyDefinition;
 
     @ManyToOne(fetch = FetchType.EAGER)

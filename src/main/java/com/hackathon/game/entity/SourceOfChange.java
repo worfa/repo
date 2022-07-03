@@ -21,4 +21,8 @@ public class SourceOfChange {
 
     @ManyToOne
     private Property mutableProperty;
+
+    public SourceOfChange(String nameSource) {
+        this.nameSource = nameSource;
+    }
 }
