@@ -45,7 +45,7 @@ public class PropertyValue {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "mutable_property_sqn", nullable = false)
-    private Property mutableProperty;
+    private Property property;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "source_of_change_sqn", nullable = false)

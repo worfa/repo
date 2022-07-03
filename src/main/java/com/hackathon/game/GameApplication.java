@@ -40,6 +40,7 @@ public class GameApplication {
 			HeroRace goblin = new HeroRace("Гоблин");
 			HeroRace human = new HeroRace("Человек");
 			HeroRace undead = new HeroRace("Нежить");
+			HeroRace astronaut = new HeroRace("Космонавт");
 
 			HeroClass warrior = new HeroClass("Воин");
 			HeroClass archer = new HeroClass("Воин-лучник");
@@ -79,6 +80,7 @@ public class GameApplication {
 			heroGuildRepository.save(thePiratesOfTheSouthernSea);
 			heroGuildRepository.save(warlocksClan);
 
+			heroRaceRepository.save(astronaut);
 			heroRaceRepository.save(ork);
 			heroRaceRepository.save(elf);
 			heroRaceRepository.save(goblin);
@@ -110,6 +112,30 @@ public class GameApplication {
 			propertyRepository.save(hat);
 			propertyRepository.save(boots);
 			propertyRepository.save(armor);
+
+			PropertyDefinition leatherHat = new PropertyDefinition("leather", hat);
+			PropertyDefinition textileHat = new PropertyDefinition("textile", hat);
+			PropertyDefinition steelHat = new PropertyDefinition("steel", hat);
+
+			PropertyDefinition leatherBoots = new PropertyDefinition("leather", boots);
+			PropertyDefinition textileBoots = new PropertyDefinition("textile", boots);
+			PropertyDefinition steelBoots = new PropertyDefinition("steel", boots);
+
+			PropertyDefinition leatherArmor = new PropertyDefinition("leather", armor);
+			PropertyDefinition textileArmor = new PropertyDefinition("textile", armor);
+			PropertyDefinition steelArmor = new PropertyDefinition("steel", armor);
+
+			propertyDefinitionRepository.save(leatherHat);
+			propertyDefinitionRepository.save(textileHat);
+			propertyDefinitionRepository.save(steelHat);
+
+			propertyDefinitionRepository.save(leatherBoots);
+			propertyDefinitionRepository.save(textileBoots);
+			propertyDefinitionRepository.save(steelBoots);
+
+			propertyDefinitionRepository.save(leatherArmor);
+			propertyDefinitionRepository.save(textileArmor);
+			propertyDefinitionRepository.save(steelArmor);
 
 			Hero bilbo = new Hero(
 					"Бильбо Бэггинс",
@@ -199,7 +225,10 @@ public class GameApplication {
 
 	@Bean
 	public ModelMapper getMapper() {
-		return new ModelMapper();
+		ModelMapper modelMapper = new ModelMapper();
+		modelMapper.getConfiguration().setSkipNullEnabled(true);
+
+		return modelMapper;
 	}
 
 }

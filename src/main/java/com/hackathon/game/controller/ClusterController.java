@@ -8,10 +8,7 @@ import com.hackathon.game.service.PropertyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.hateoas.MediaTypes;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @RepositoryRestController
 @RequiredArgsConstructor
@@ -22,16 +19,21 @@ public class ClusterController {
 
     @PostMapping(value = "/cluster", produces = MediaTypes.HAL_JSON_VALUE)
     @ResponseBody
-    public void create (
+    public Long create (
             @RequestBody ClusterModel clusterModel) {
-        clusterService.create(clusterModel);
+        return clusterService.create(clusterModel);
     }
 
     @PostMapping(value = "/cluster/{id}/properties", produces = MediaTypes.HAL_JSON_VALUE)
     @ResponseBody
-    public void createClusterProperty(@RequestBody PropertyModel propertyModel, @PathVariable Long id) {
-        propertyService.create(propertyModel, id);
+    public Long createClusterProperty(@RequestBody PropertyModel propertyModel, @PathVariable Long id) {
+        return propertyService.create(propertyModel, id);
     }
 
+    @PutMapping(value = "/cluster/{id}", produces = MediaTypes.HAL_JSON_VALUE)
+    @ResponseBody
+    public void updateClusterProperty (@RequestBody ClusterModel clusterModel, @PathVariable Long id) {
+        clusterService.update(clusterModel, id);
+    }
 
 }

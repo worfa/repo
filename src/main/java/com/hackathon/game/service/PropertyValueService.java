@@ -24,7 +24,7 @@ public class PropertyValueService {
 
     public void create(PropertyValueModel propertyValueModel) {
         PropertyValue propertyValue = modelMapper.map(propertyValueModel, PropertyValue.class);
-        propertyValue.setMutableProperty(propertyRepository.findById(propertyValueModel.getIdMutProp()).orElse(null));
+        propertyValue.setProperty(propertyRepository.findById(propertyValueModel.getIdMutProp()).orElse(null));
         propertyValue.setHero(heroRepository.findById(propertyValueModel.getIdUser()).orElse(null));
         propertyValue.setPropertyDefinition(propertyDefinitionRepository.findById(propertyValueModel.getIdEnumMp()).orElse(null));
         propertyValue.setSourceOfChange(sourceOfChengeRepository.findById(propertyValueModel.getIdSourceOfChange()).orElse(null));

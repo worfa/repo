@@ -21,9 +21,17 @@ public class PropertyService {
         propertyRepository.saveAndFlush(property);
     }
 
-    public void create (PropertyModel propertyModel, Long idCluster) {
+    public Long create (PropertyModel propertyModel, Long idCluster) {
         Property property = modelMapper.map(propertyModel, Property.class);
         property.setCluster(clusterRepository.findById(idCluster).orElse(null));
         propertyRepository.saveAndFlush(property);
+        return propertyRepository.findTopByOrderByIdDesc().getId();
+    }
+
+    public void update (PropertyModel propertyModel, Long idProperty) {
+        Property property = modelMapper.map(propertyModel, Property.class);
+        Property propertyOfBd = propertyRepository.findById(idProperty).orElse(null);
+        modelMapper.map(property, propertyOfBd);
+        propertyRepository.saveAndFlush(propertyOfBd);
     }
 }

@@ -16,25 +16,17 @@ public class PropertyDefinitionService {
     private final PropertyRepository propertyRepository;
     private final ModelMapper modelMapper;
 
-    public void create(PropertyDefinitionModel mpEnumModel) {
-        PropertyDefinition mpEnum = convertToEntity(mpEnumModel);
-        propertyDefinitionRepository.saveAndFlush(mpEnum);
+    public Long create(PropertyDefinitionModel propertyDefinitionModel) {
+        PropertyDefinition propertyDefinition = modelMapper.map(propertyDefinitionModel, PropertyDefinition.class);
+        propertyDefinition.setProperties(propertyRepository.findById(propertyDefinitionModel.getIdMutProp()).orElse(null));
+        propertyDefinitionRepository.saveAndFlush(propertyDefinition);
+        return propertyDefinitionRepository.findTopByOrderByIdDesc().getId();
     }
 
-    public void create(PropertyDefinitionModel propertyDefinitionModel, Long idProperty){
+    public Long create(PropertyDefinitionModel propertyDefinitionModel, Long idProperty){
         PropertyDefinition propertyDefinition = modelMapper.map(propertyDefinitionModel, PropertyDefinition.class);
         propertyDefinition.setProperties(propertyRepository.findById(idProperty).orElse(null));
         propertyDefinitionRepository.saveAndFlush(propertyDefinition);
+        return propertyDefinitionRepository.findTopByOrderByIdDesc().getId();
     }
-
-    private PropertyDefinition convertToEntity(PropertyDefinitionModel propertyDefinitionModel){
-
-        PropertyDefinition propertyDefinition = new PropertyDefinition();
-
-        propertyDefinition.setNameEnum(propertyDefinitionModel.getNameEnum());
-        propertyDefinition.setProperties(propertyRepository.findById(propertyDefinitionModel.getIdMutProp()).orElse(null));
-
-        return propertyDefinition;
-    }
-
 }

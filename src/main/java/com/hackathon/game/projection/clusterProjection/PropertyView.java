@@ -15,7 +15,7 @@ public interface PropertyView {
 
     String getNameProp();
 
-    String typeofMp();
+    String getTypeofMp();
 
-    List<PropertyDefinitionView> propertyDefinition();
+    List<PropertyDefinitionView> getPropertyDefinitions();
 }
