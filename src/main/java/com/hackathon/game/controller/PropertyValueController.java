@@ -4,13 +4,11 @@ import com.hackathon.game.entity.PropertyValue;
 import com.hackathon.game.model.PropertyValueModel;
 import com.hackathon.game.service.PropertyValueService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RepositoryRestController
@@ -25,13 +23,14 @@ public class PropertyValueController {
             @RequestBody PropertyValueModel propertyValueModel) {
         propertyValueService.create(propertyValueModel);
     }
-    @GetMapping(value = "/value/findByHeroAndBeginDateAndSourceChange", produces = MediaTypes.HAL_JSON_VALUE)
-    public List<PropertyValue> getValuesForHeroBySourceChangeAndDate(
-            @RequestParam Long heroId,
-            @RequestParam String beginDate,
-            @RequestParam Long sourceChangeId) {
 
-        return propertyValueService.findValuesByUserIdDateAndSourceChange(
+    @PostMapping(path = "/value", params = {"heroId", "beginDate", "sourceChangeId"})
+    public List<PropertyValue> getValuesByHeroIdDateAndSourceChange(
+            @RequestParam("heroId") Long heroId,
+            @RequestParam("beginDate") String beginDate,
+            @RequestParam("sourceChangeId") Long sourceChangeId) {
+
+        return propertyValueService.getValuesByHeroIdDateAndSourceChange(
                 heroId,
                 beginDate,
                 sourceChangeId
