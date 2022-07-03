@@ -31,10 +31,13 @@ public class PropertyValueService {
         propertyValueRepository.saveAndFlush(propertyValue);
     }
 
-    public List<PropertyValue> findValuesByUserIdDateAndSourceChange(Long heroId, String beginDate,
-                                                                Long sourceChangeId) {
+    public List<PropertyValue> getValuesByHeroIdDateAndSourceChange(Long heroId,
+                                                                    String beginDate,
+                                                                    Long sourceChangeId) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        return propertyValueRepository.getByDateUserIdAndSourceChange(heroId, LocalDate.parse(beginDate, formatter),
+        return propertyValueRepository.getValuesByHeroIdDateAndSourceChange(
+                heroId,
+                LocalDate.parse(beginDate, formatter),
                 sourceChangeId);
     }
 }
