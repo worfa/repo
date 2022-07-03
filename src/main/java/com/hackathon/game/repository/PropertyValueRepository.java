@@ -1,6 +1,8 @@
 package com.hackathon.game.repository;
 
 import com.hackathon.game.entity.PropertyValue;
+import com.hackathon.game.projection.clusterProjection.ClusterView;
+import com.hackathon.game.projection.propertyValueProjection.PropertyValueView;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -12,7 +14,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
-@RepositoryRestResource(collectionResourceRel = "value", path = "value")
+@RepositoryRestResource(excerptProjection = PropertyValueView.class, collectionResourceRel = "value", path = "value")
 public interface PropertyValueRepository extends JpaRepository<PropertyValue, Long> {
 
     @Query(value = "SELECT p FROM PropertyValue p WHERE p.hero.id = :heroId and p.dateBegin = :beginDate and " +
