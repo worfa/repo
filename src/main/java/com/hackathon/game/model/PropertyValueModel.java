@@ -7,6 +7,8 @@ import java.time.LocalDate;
 @Data
 public class PropertyValueModel {
 
+    private Long id;
+
     private LocalDate dateEnd;
 
     private LocalDate dateBegin;
@@ -21,9 +23,9 @@ public class PropertyValueModel {
 
     private Long idSource;
 
-    private Long idEnumMp;
+    private Long enumValue;
 
-    private Long idUser;
+    private Long idHero;
 
     private Long idMutProp;
 

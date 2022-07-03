@@ -40,7 +40,7 @@ public class PropertyValueController {
 
     @PutMapping(path = "/value", produces = MediaTypes.HAL_JSON_VALUE)
     @ResponseBody
-    public void update(@RequestBody ValueUpdateModel valueUpdateModel ){
-        propertyValueService.update();
+    public void update( @RequestBody ValueUpdateModel valueUpdateModel ){
+        propertyValueService.update(valueUpdateModel);
     }
 }
