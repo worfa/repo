@@ -21,9 +21,4 @@ public class HeroController {
             @RequestBody HeroModel heroModel) {
         heroService.create(heroModel);
     }
-
-//    @GetMapping(value = "/hero/{id}", produces = MediaTypes.HAL_JSON_VALUE)
-//    public HeroClusterModel getHeroCluster(@PathVariable Long id) {
-//        return heroService.getHeroCluster(id);
-//    }
 }

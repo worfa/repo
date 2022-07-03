@@ -13,10 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -44,36 +41,10 @@ public class HeroService {
         heroRepository.saveAndFlush(hero);
     }
 
-//    public HeroClusterModel getHeroCluster(Long heroId) {
-//        Hero hero = heroRepository.findById(heroId).orElse(null);
-//        List<PropertyValue> propertyValues = propertyValueRepository.getByHeroAndActualityFlag(heroId, true);
-//        List<Property> properties = propertyValues.stream()
-//                .filter(propertyValue -> propertyValue.getHero().getId() == hero.getId())
-//                .map(propertyValue -> propertyValue.getProperty()).collect(Collectors.toList());
-//
-////        List<Cluster> clusters = clusterRepository.findClustersForUser(properties);
-//
-//        Map<Long, List<Property>> mapCluster = new HashMap<>();
-//
-//        for(Long i = 0L; i < mapCluster.size(); i++) {
-//            List<Property> propertyList = mapCluster.get(i);
-//            Long finalI = i;
-//            properties.stream().filter(property -> property.getCluster().getId() == finalI).forEach(property -> propertyList.add(property));
-//            mapCluster.put(i, propertyList);
-//        }
+    public void getHeroCluster(Long heroId) {
 
-//        clusters.forEach(cluster -> cluster.setProperties(mapCluster.get(cluster.getId())));
-//
-//        HeroClusterModel heroClusterModel = new HeroClusterModel();
-//        heroClusterModel.setClusters(clusters);
-//        heroClusterModel.setNameHeroClass(hero.getHeroClass().getNameClass());
-//        heroClusterModel.setAvatarHero(hero.getAvatarHero());
-//        heroClusterModel.setHeroName(hero.getHeroName());
-//        heroClusterModel.setAbout(hero.getAbout());
-//        heroClusterModel.setDateReg(hero.getDateReg());
-//        heroClusterModel.setNameGuild(hero.getHeroGuild().getNameGuild());
-//        heroClusterModel.setNameRace(hero.getHeroRace().getRaceName());
-//
-//        return heroClusterModel;
-//    }
+        Hero hero = heroRepository.findById(heroId).orElse(null);
+        List<PropertyValue> propertyValues = propertyValueRepository.getByHeroAndActualityFlag(hero, true);
+
+    }
 }
