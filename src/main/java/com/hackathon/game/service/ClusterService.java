@@ -19,4 +19,10 @@ public class ClusterService {
        clusterRepository.saveAndFlush(cluster);
        return clusterRepository.findTopByOrderByIdDesc().getId();
     }
+
+    public void update(ClusterModel clusterModel, Long idCluster) {
+        Cluster clusterOfBd = clusterRepository.findById(idCluster).orElse(null);
+        modelMapper.map(clusterModel, clusterOfBd);
+        clusterRepository.saveAndFlush(clusterOfBd);
+    }
 }
