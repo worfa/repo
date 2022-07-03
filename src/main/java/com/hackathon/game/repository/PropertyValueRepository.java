@@ -2,7 +2,8 @@ package com.hackathon.game.repository;
 
 import com.hackathon.game.entity.Hero;
 import com.hackathon.game.entity.PropertyValue;
-import com.hackathon.game.projection.clusterProjection.PropertyValueView;
+import com.hackathon.game.projection.clusterProjection.ClusterView;
+import com.hackathon.game.projection.propertyValueProjection.PropertyValueView;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
