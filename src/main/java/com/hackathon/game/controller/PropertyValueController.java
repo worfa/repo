@@ -25,7 +25,7 @@ public class PropertyValueController {
             @RequestBody PropertyValueModel propertyValueModel) {
         propertyValueService.create(propertyValueModel);
     }
-    @GetMapping(value = "/value/findByHeroAndBeginDateAndSourceChange")
+    @GetMapping(value = "/value/findByHeroAndBeginDateAndSourceChange", produces = MediaTypes.HAL_JSON_VALUE)
     public List<PropertyValue> getValuesForHeroBySourceChangeAndDate(
             @RequestParam Long heroId,
             @RequestParam String beginDate,

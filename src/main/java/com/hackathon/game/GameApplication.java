@@ -29,7 +29,9 @@ public class GameApplication {
 			ClusterRepository clusterRepository,
 			PropertyRepository propertyRepository,
 			PropertyDefinitionRepository propertyDefinitionRepository,
-			HeroRepository heroRepository
+			HeroRepository heroRepository,
+			SourceOfChengeRepository sourceOfChengeRepository,
+			PropertyValueRepository propertyValueRepository
 	){
 		return args -> {
 
@@ -51,6 +53,18 @@ public class GameApplication {
 			PropertyDefinition leather = new PropertyDefinition("leather");
 			PropertyDefinition textile = new PropertyDefinition("textile");
 			PropertyDefinition steel = new PropertyDefinition("steel");
+
+			SourceOfChange getInGame = new SourceOfChange("Вход в игру");
+			SourceOfChange stopPlaying = new SourceOfChange("Выход из игры");
+			SourceOfChange buyLoot = new SourceOfChange("Покупка лута");
+			SourceOfChange levelUp = new SourceOfChange("Повышение уровня");
+			SourceOfChange levelDown = new SourceOfChange("Понижение уровня");
+
+			sourceOfChengeRepository.save(getInGame);
+			sourceOfChengeRepository.save(stopPlaying);
+			sourceOfChengeRepository.save(buyLoot);
+			sourceOfChengeRepository.save(levelDown);
+			sourceOfChengeRepository.save(levelUp);
 
 			propertyDefinitionRepository.save(leather);
 			propertyDefinitionRepository.save(textile);
@@ -140,7 +154,47 @@ public class GameApplication {
 			heroRepository.save(bilbo);
 			heroRepository.save(azok);
 			heroRepository.save(legolas);
+
+			PropertyValue bilboHealth = new PropertyValue();
+			bilboHealth.setActualityFlag(true);
+			bilboHealth.setDateBegin(LocalDate.now());
+			bilboHealth.setHero(bilbo);
+			bilboHealth.setSourceOfChange(getInGame);
+			bilboHealth.setNumberValue(100L);
+			bilboHealth.setMutableProperty(healthPoint);
+
+			PropertyValue bilboGold = new PropertyValue();
+			bilboGold.setActualityFlag(true);
+			bilboGold.setDateBegin(LocalDate.now());
+			bilboGold.setHero(bilbo);
+			bilboGold.setSourceOfChange(getInGame);
+			bilboGold.setNumberValue(100L);
+			bilboGold.setMutableProperty(gold);
+
+			PropertyValue azokHealth = new PropertyValue();
+			azokHealth.setActualityFlag(true);
+			azokHealth.setDateBegin(LocalDate.now());
+			azokHealth.setHero(azok);
+			azokHealth.setSourceOfChange(getInGame);
+			azokHealth.setNumberValue(100L);
+			azokHealth.setMutableProperty(healthPoint);
+
+			PropertyValue azokGold = new PropertyValue();
+			azokGold.setActualityFlag(true);
+			azokGold.setDateBegin(LocalDate.now());
+			azokGold.setHero(bilbo);
+			azokGold.setSourceOfChange(getInGame);
+			azokGold.setNumberValue(100L);
+			azokGold.setMutableProperty(gold);
+
+			propertyValueRepository.save(bilboHealth);
+			propertyValueRepository.save(bilboGold);
+			propertyValueRepository.save(azokGold);
+			propertyValueRepository.save(azokHealth);
+
 		};
+
+
 	}
 
 	@Bean
